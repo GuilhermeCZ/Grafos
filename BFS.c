@@ -8,6 +8,8 @@ struct queue {
     int rear;
 };
 
+int roadtoZ[20];
+
 struct queue* createQueue();
 void enqueue(struct queue* q, int);
 int dequeue(struct queue* q);
@@ -34,6 +36,7 @@ struct Graph* createGraph(int vertices);
 void addEdge(struct Graph* graph, int src, int dest);
 void printGraph(struct Graph* graph);
 void bfs(struct Graph* graph, int startVertex);
+void sortpath(struct Graph* graph);
 
 int main()
 {
@@ -84,7 +87,7 @@ void bfs(struct Graph* graph, int startVertex) {
     while(!isEmpty(q)){
         printQueue(q);
         int currentVertex = dequeue(q);
-        printf("Visited %d\n", currentVertex);
+        printf("Visited actual: %d\n", currentVertex);
 
        struct node* temp = graph->adjLists[currentVertex];
 
